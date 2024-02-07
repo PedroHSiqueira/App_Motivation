@@ -1,8 +1,11 @@
-package com.example.motivation
+package com.example.motivation.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.motivation.infrestructure.MotivationConstants
+import com.example.motivation.R
+import com.example.motivation.infrestructure.SecurityPreferences
 import com.example.motivation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -24,7 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun handleUserName() {
-        val name = SecurityPreferences(this).getString("USER_NAME")
+        val name = SecurityPreferences(this).getString(MotivationConstants.Key.USER_NAME)
 
         binding.textUserName.text = "Olá, $name!"
     }
