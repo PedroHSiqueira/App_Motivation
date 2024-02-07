@@ -34,6 +34,7 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
         val validationText = R.string.validation_mandatory_name
 
         if (username != "") {
+            SecurityPreferences(this).storeString("USER_NAME", username)
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         } else {

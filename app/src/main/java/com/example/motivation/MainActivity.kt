@@ -17,8 +17,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //Esconder a barra de suporte
         supportActionBar?.hide()
 
+        handleUserName()
+
         //eventos
         binding.buttonNewPhrase.setOnClickListener(this)
+    }
+
+    private fun handleUserName() {
+        val name = SecurityPreferences(this).getString("USER_NAME")
+
+        binding.textUserName.text = "Olá, $name!"
     }
 
     override fun onClick(v: View?) {
