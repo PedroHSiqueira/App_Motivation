@@ -34,7 +34,7 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun verifyUserName() {
-        val name = SecurityPreferences(this).getString(MotivationConstants.Key.USER_NAME)
+        val name = SecurityPreferences(this).getString(MotivationConstants.KEY.USER_NAME)
         if (name != "") {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
@@ -46,7 +46,7 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
         val validationText = R.string.validation_mandatory_name
 
         if (username != "") {
-            SecurityPreferences(this).storeString(MotivationConstants.Key.USER_NAME, username)
+            SecurityPreferences(this).storeString(MotivationConstants.KEY.USER_NAME, username)
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         } else {

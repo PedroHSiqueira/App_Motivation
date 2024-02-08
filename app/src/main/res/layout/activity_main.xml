@@ -15,19 +15,21 @@
         android:paddingVertical="16dp">
 
         <ImageView
+            android:id="@+id/image_loop"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_loop"
-            app:tint="@color/white" />
+            android:src="@drawable/ic_loop" />
 
         <ImageView
+            android:id="@+id/image_face"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
             android:src="@drawable/ic_face" />
 
         <ImageView
+            android:id="@+id/image_sunny"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -42,7 +44,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/cabin"
-        android:text="Olá kotlin"
+        android:text="Olá, kotlin"
         android:textColor="@color/black"
         android:textSize="18sp" />
 
