@@ -6,13 +6,14 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.example.motivation.infrestructure.MotivationConstants
 import com.example.motivation.R
+import com.example.motivation.data.Mock
 import com.example.motivation.infrestructure.SecurityPreferences
 import com.example.motivation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
-    private var categoryId = 1
+    private var categoryId = MotivationConstants.FILTER.LOOP
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         handleUserName()
         handleFilter(R.id.image_loop)
+        handleNextPhrase()
 
         //eventos
         binding.buttonNewPhrase.setOnClickListener(this)
@@ -34,10 +36,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         if (v!!.id == R.id.button_new_phrase) {
-
+            handleNextPhrase()
         } else if (v.id in listOf(R.id.image_loop, R.id.image_face, R.id.image_sunny)) {
             handleFilter(v.id)
         }
+    }
+
+    private fun handleNextPhrase() {
+        val phrase = Mock().getPhrase(categoryId)
+        binding.textMiddlePhrase.text = phrase
     }
 
     private fun handleFilter(id: Int) {
